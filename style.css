@@ -1,0 +1,147 @@
+/* --- TRADINGVIEW DARK THEME VARIABLES --- */
+:root {
+    --bg-main: #131722;
+    --bg-card: #1e222d;
+    --text-title: #eee;
+    --text-primary: #eee;
+    --text-dim: #ccc;
+    --accent: #2962ff;
+    --border: #363a45;
+    --switch-off: #363a45;
+}
+
+/* --- GENERAL RESET --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    margin: 0;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* --- LAYOUT MODES --- */
+
+/* Popup Mode: Narrow and compact */
+body.popup-mode {
+    width: 250px;
+    margin: 20px;
+}
+
+/* Options Mode: Wide and centered with a card */
+body.options-mode {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* --- TYPOGRAPHY --- */
+h1, .header {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-title);
+    margin: 0 0 20px 0;
+}
+
+body.popup-mode .header {
+    font-size: 16px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 16px;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin-left: 10px;
+}
+
+/* --- INTERFACE ROWS --- */
+.section .row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+    gap: 12px;
+}
+
+.section .row:last-child {
+    margin-bottom: 0;
+}
+
+
+.row span {
+    color: var(--text-dim);
+    flex: 1;
+    line-height: 1.4;
+}
+
+/* --- TOGGLE SWITCH (The Slider) --- */
+.switch {
+    position: relative;
+    display: block;
+    width: 34px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--switch-off);
+    transition: 0.2s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.2s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--accent);
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+}

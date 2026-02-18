@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "TradingView Assistant",
+  "version": "1.0",
+  "description": " TradingView navigation improvements: vertical zoom, fast horizontal chart scrolling, accidental symbol change prevention",
+  "content_scripts": [
+    {
+      "matches": ["https://*.tradingview.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "320": "icon320.png"
+  },
+  "permissions": ["storage"],
+  "options_page": "options.html",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "author": "stavsky"
+}
